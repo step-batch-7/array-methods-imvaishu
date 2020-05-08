@@ -10,9 +10,9 @@ typedef enum
 typedef int *Int_ptr;
 typedef Bool *Bool_ptr;
 
-typedef Int_ptr Mapper(int);
-typedef Bool Predicate(int);
-typedef Int_ptr Reducer(int, int);
+typedef int (*Mapper)(int);
+typedef Bool (*Predicate)(int);
+typedef int (*Reducer)(int, int);
 
 typedef struct
 {
@@ -22,7 +22,7 @@ typedef struct
 
 typedef Array *Array_ptr; 
 
-Int_ptr square(int a);
+int square(int a);
 Bool is_even(int element);
 
 Array_ptr map(Array_ptr src, Mapper mapper);
