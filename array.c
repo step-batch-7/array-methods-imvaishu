@@ -30,6 +30,7 @@ Array_ptr filter(Array_ptr src, Predicate predicate)
 {
   Array_ptr new_array = malloc(sizeof(Array));
   new_array->array = malloc(sizeof(int) * src->length);
+
   int count = 0;
   for(int index = 0 ; index < src->length ; index++)
   {
@@ -50,9 +51,11 @@ int sum(int num1,int num2)
 
 int reduce(Array_ptr src, int init, Reducer reducer)
 {
-  for(int index = 0 ; index < src->length;index++)
+  int count = 0;
+  while(count < src->length)
   {
-    init = reducer(init,src->array[index]);
+    init = reducer(init,src->array[count]);
+    count++;
   }
   return init;
 }
