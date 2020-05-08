@@ -40,6 +40,6 @@ int main(void)
   printf("filter...\n");
   display_result(filter_result);
   int value = reduce(src,0,&sum);
-  printf("reduce... %d\n",value);
+  printf("reduce...\n%d\n",value);
   return 0;
 }

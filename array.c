@@ -2,17 +2,20 @@
 #include <stdlib.h>
 #include "array.h"
 
-int square(int a)
+int square(int num)
 {
-  return a * a;
+  return num * num;
 }
 
-Array_ptr map(Array_ptr src, Mapper mapper){
+Array_ptr map(Array_ptr src, Mapper mapper)
+{
   Array_ptr new_array = malloc(sizeof(Array));
   new_array->array =  malloc(sizeof(int) * src->length);
-  for(int index = 0 ; index < src->length ; index++)
+  int count = 0;
+  while(count < src->length)
   {
-    new_array->array[index] = mapper(src->array[index]);
+    new_array->array[count] = mapper(src->array[count]);
+    count++;
   }
   new_array->length = src->length;
   return new_array;
