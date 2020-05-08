@@ -14,6 +14,8 @@ typedef int (*Mapper)(int);
 typedef Bool (*Predicate)(int);
 typedef int (*Reducer)(int, int);
 
+#define EMPTY_LINE printf("\n");
+
 typedef struct
 {
   Int_ptr array;

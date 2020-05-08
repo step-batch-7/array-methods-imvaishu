@@ -2,18 +2,13 @@
 #include <stdlib.h>
 #include "array.h"
 
-void display_element(void *data)
-{
-  int *number = (int *)data;
-  printf("%d\n",*number);
-}
-
 void display_result(Array_ptr result)
 {
 for(int i = 0; i < result->length ; i++)
   {
-   display_element(&result->array[i]);
+  printf("%d\n",result->array[i]);
   }
+  EMPTY_LINE;
 }
 
 Array_ptr create_dynamic_array(Int_ptr numbers,int length)
@@ -32,14 +27,16 @@ int main(void)
 {
   int a[] = {1,2,3,4,5};
   int length = sizeof(a) / sizeof(int);
+
   Array_ptr src = create_dynamic_array(a,length);
+
   Array_ptr map_result = map(src,&square);
-  printf("map...\n");
   display_result(map_result);
+
   Array_ptr filter_result = filter(src,&is_even);
-  printf("filter...\n");
   display_result(filter_result);
+  
   int value = reduce(src,0,&sum);
-  printf("reduce...\n%d\n",value);
+  printf("%d\n",value);
   return 0;
 }
