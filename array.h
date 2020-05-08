@@ -7,11 +7,12 @@ typedef enum
   True
 } Bool;
 
-typedef int *Int_ptr; 
+typedef int *Int_ptr;
+typedef Bool *Bool_ptr;
 
-typedef int *Mapper(int);
-typedef Bool *Predicate(int);
-typedef int *Reducer(int, int);
+typedef Int_ptr Mapper(int);
+typedef Bool Predicate(int);
+typedef Int_ptr Reducer(int, int);
 
 typedef struct
 {
@@ -21,7 +22,8 @@ typedef struct
 
 typedef Array *Array_ptr; 
 
-int *square(int a);
+Int_ptr square(int a);
+Bool is_even(int element);
 
 Array_ptr map(Array_ptr src, Mapper mapper);
 Array_ptr filter(Array_ptr src, Predicate predicate);
