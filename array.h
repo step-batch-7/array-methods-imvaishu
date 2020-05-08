@@ -8,17 +8,20 @@ typedef enum
 } Bool;
 
 typedef int *Int_ptr; 
-typedef Array *Array_ptr; 
 
-typedef int (*Mapper)(int);
-typedef Bool (*Predicate)(int);
-typedef int (*Reducer)(int, int);
+typedef int *Mapper(int);
+typedef Bool *Predicate(int);
+typedef int *Reducer(int, int);
 
 typedef struct
 {
   Int_ptr array;
   int length;
 } Array;
+
+typedef Array *Array_ptr; 
+
+int *square(int a);
 
 Array_ptr map(Array_ptr src, Mapper mapper);
 Array_ptr filter(Array_ptr src, Predicate predicate);
