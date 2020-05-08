@@ -17,13 +17,13 @@ Array_ptr map(Array_ptr src, Mapper mapper)
     new_array->array[count] = mapper(src->array[count]);
     count++;
   }
-  new_array->length = src->length;
+  new_array->length = count;
   return new_array;
 }
 
-Bool is_even(int element)
+Bool is_even(int num)
 {
-  return !(element % 2);
+  return !(num % 2);
 }
 
 Array_ptr filter(Array_ptr src, Predicate predicate)
