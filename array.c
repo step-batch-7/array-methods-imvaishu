@@ -39,3 +39,17 @@ Array_ptr filter(Array_ptr src, Predicate predicate)
   new_array->length = count;
   return new_array;
 }
+
+int sum(int num1,int num2)
+{
+  return num1 + num2;
+}
+
+int reduce(Array_ptr src, int init, Reducer reducer)
+{
+  for(int index = 0 ; index < src->length;index++)
+  {
+    init = reducer(init,src->array[index]);
+  }
+  return init;
+}

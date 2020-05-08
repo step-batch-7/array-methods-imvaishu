@@ -39,5 +39,7 @@ int main(void)
   Array_ptr filter_result = filter(src,&is_even);
   printf("filter...\n");
   display_result(filter_result);
+  int value = reduce(src,0,&sum);
+  printf("reduce... %d\n",value);
   return 0;
 }
