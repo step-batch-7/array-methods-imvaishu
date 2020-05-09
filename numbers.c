@@ -34,9 +34,11 @@ int main(void)
   ArrayVoid_ptr void_array = malloc(sizeof(ArrayVoid));
   void_array->array = (Object *)&numbers[0];
   void_array->length = 4;
-  int a[] = {1,2,3,4,5};
-  int length = sizeof(a) / sizeof(int);
+  
   ArrayVoid_ptr map_result = map_void(void_array, &increment);
   print_void_array(map_result, &print_int);
+
+  ArrayVoid_ptr filter_result = filter_void(void_array, &is_num_even);
+  print_void_array(filter_result, &print_int);
   return 0;
 }
