@@ -44,3 +44,21 @@ ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate)
   new_array->length = count;
   return new_array;
 }
+
+Object add(Object num1,Object num2)
+{
+  int *result = malloc(sizeof(int));
+  *result = *(int *)num1 + *(int *)num2;
+  return result;
+}
+
+Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer)
+{
+  int count = 0;
+  while(count < src->length)
+  {
+    init = reducer(init,src->array[count]);
+    count++;
+  }
+  return init;
+}

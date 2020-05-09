@@ -40,5 +40,11 @@ int main(void)
 
   ArrayVoid_ptr filter_result = filter_void(void_array, &is_num_even);
   print_void_array(filter_result, &print_int);
+
+  int* init = malloc(sizeof(int));
+  *init = 0;
+  Object result = reduce_void(void_array, init, &add);
+  print_int(result);
+
   return 0;
 }

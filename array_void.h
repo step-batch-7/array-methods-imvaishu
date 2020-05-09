@@ -18,6 +18,7 @@ typedef ArrayVoid *ArrayVoid_ptr;
 
 Object increment(Object data);
 Bool is_num_even(Object data);
+Object add(Object num1,Object num2);
 
 ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper);
 ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate);
